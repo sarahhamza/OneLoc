@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="no-js home-2" lang="{{ app.request.locale|default('en') }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}OneLoc : Real Estate HTML Template{% endblock %}</title>
+    <meta name="author" content="OneLoc">
+    <meta name="description" content="OneLoc-html - Real Estate Home HTML Template">
+    <meta name="keywords" content="OneLoc-html - Real Estate Home HTML Template">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/img/favicons/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/img/favicons/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicons/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/img/favicons/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/img/favicons/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicons/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicons/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body class="home-2">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <button class="th-btn preloaderCls">Cancel Preloader</button>
+        <div id="preloader" class="preloader-inner">
+            <div class="txt-loading">
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader="N" class="letters-loading">N</span>
+                <span data-text-preloader="E" class="letters-loading">E</span>
+                <span data-text-preloader="L" class="letters-loading">L</span>
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader="C" class="letters-loading">C</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Color Switcher -->
+    <div class="color-scheme">
+        <button class="switchIcon"><i class="fa-solid fa-palette"></i></button>
+        <h4 class="color-scheme-title"><i class="far fa-palette"></i> Color Switcher</h4>
+        <p class="color-scheme-text">Check template with your color</p>
+        <div class="color-switch-btns">
+            <button data-color="#6240CF"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#068FFF"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#044DBC"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#FFAF00"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#F80000"><i class="fa-solid fa-droplet"></i></button>
+            <button data-color="#231E7A"><i class="fa-solid fa-droplet"></i></button>
+        </div>
+        <p class="color-scheme-text">Or custom color..</p>
+        <input type="color" id="thcolorpicker" value="#068FFF">
+    </div>
+
+    <!-- Sidemenu Cart -->
+    <div class="sidemenu-wrapper sidemenu-cart d-none d-lg-block">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget woocommerce widget_shopping_cart">
+                <h3 class="widget_title">Shopping cart</h3>
+                <div class="widget_shopping_cart_content">
+                    <ul class="woocommerce-mini-cart cart_list product_list_widget">
+                        <!-- Cart items would go here -->
+                    </ul>
+                    <p class="woocommerce-mini-cart__total total">
+                        <strong>Subtotal:</strong>
+                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
+                    </p>
+                    <p class="woocommerce-mini-cart__buttons buttons">
+                        <a href="#" class="th-btn wc-forward">View cart</a>
+                        <a href="#" class="th-btn checkout wc-forward">Checkout</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sidemenu Info -->
+    <div class="sidemenu-wrapper sidemenu-info d-none d-lg-block">
+        <div class="sidemenu-content">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget">
+                <div class="th-widget-about">
+                    <div class="about-logo">
+                        <a href="{{ path('app_home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="OneLoc-html" height="150"></a>
+                    </div>
+                    <p class="about-text mb-4">ONELOC is a luxury to the resilience, adaptability, Spacious modern villa living room with centrally placed swimming pool blending indooroutdoor.</p>
+                    <p class="footer-info"><i class="fas fa-phone"></i> <a href="tel:+00123456789012" class="info-box_link">+00 (123) 456 789 012</a></p>
+                    <p class="footer-info"><i class="fas fa-envelope"></i> <a href="mailto:infomail123@domain.com" class="info-box_link">infomail123@domain.com</a></p>
+                    <p class="footer-info"><i class="fas fa-location-dot"></i> <span>West 2nd lane, Inner circular road, New York City</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Popup -->
+    <div class="popup-search-box d-none d-lg-block">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" placeholder="What are you looking for?">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
+
+{# --------------------------------------------------- #}
+{#  MOBILE MENU (drawer)                               #}
+{# --------------------------------------------------- #}
+<div class="th-menu-wrapper">
+    <div class="th-menu-area text-center">
+        <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
+
+        <div class="mobile-logo">
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="OneLoc">
+            </a>
+        </div>
+
+        <div class="th-mobile-menu">
+            <ul>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_property_index') }}">Properties</a></li>
+                <li><a href="{{ path('app_about') }}">About Us</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact Us</a></li>
+{% if app.user and 'ROLE_ADMIN' in app.user.getRoles() %}
+    <li><a href="{{ path('admin_dashboard') }}">Admin Dashboard</a></li>
+{% endif %}
+                {# ---- GUEST ---- #}
+                {% if not app.user %}
+                    <li><a href="{{ path('app_login') }}">Login</a></li>
+                    <li><a href="{{ path('app_register') }}">Register</a></li>
+                {% endif %}
+
+                {# ---- AUTHENTICATED USER ---- #}
+                {% if app.user %}
+                    <li class="menu-item-has-children">
+                        <a href="#">
+                            {{ app.user.firstName }} {{ app.user.lastName }}
+                            <small class="d-block text-muted">@{{ app.user.email|split('@')[0] }}</small>
+                        </a>
+                        <ul class="sub-menu">
+                        <li class="nav-item">
+    <a class="nav-link" href="{{ path('app_my_properties') }}">My Properties</a>
+</li>
+                            <li><a href="{{ path('app_reservation_dashboard') }}">My Reservations</a></li>
+                            <li><a href="{{ path('app_property_new') }}">Add Listing</a></li>
+
+                            <li><a href="{{ path('app_profile_show') }}">Profile</a></li>
+                            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{# --------------------------------------------------- #}
+{#  DESKTOP HEADER                                     #}
+{# --------------------------------------------------- #}
+<header class="th-header header-default">
+    <div class="sticky-wrapper">
+        <div class="menu-area">
+            <div class="container th-container3">
+                <div class="row align-items-center justify-content-between">
+
+                    {# LOGO #}
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <a href="{{ path('app_home') }}">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="OneLoc"  width="100px">
+                            </a>
+                        </div>
+                    </div>
+
+                    {# MAIN MENU #}
+                    <div class="col-auto">
+                        <nav class="main-menu d-none d-lg-inline-block">
+                            <ul>
+                                <li><a href="{{ path('app_home') }}">Home</a></li>
+                                <li><a href="{{ path('app_property_index') }}">Properties</a></li>
+                                <li><a href="{{ path('app_about') }}">About Us</a></li>
+                                <li><a href="{{ path('app_contact') }}">Contact Us</a></li>
+{% if app.user and 'ROLE_ADMIN' in app.user.getRoles() %}
+    <li><a href="{{ path('admin_dashboard') }}">Admin Dashboard</a></li>
+{% endif %}
+                                {# ---- GUEST ---- #}
+                                {% if not app.user %}
+                                    <li><a href="{{ path('app_login') }}">Login</a></li>
+                                    <li><a href="{{ path('app_register') }}">Register</a></li>
+                                {% endif %}
+
+                                {# ---- AUTHENTICATED USER ---- #}
+                                {% if app.user %}
+                                    <li class="menu-item-has-children">
+                                        <a href="#">
+                                            {{ app.user.firstName }} {{ app.user.lastName }}
+                                        </a>
+                                        <ul class="sub-menu">
+                                        <li class="nav-item">
+    <a class="nav-link" href="{{ path('app_my_properties') }}">My Properties</a>
+</li>
+                                           <li><a href="{{ path('app_reservation_dashboard') }}">My Reservations</a></li>                  
+                                                                     <li><a href="{{ path('app_property_new') }}">Add Listing</a></li>
+                                                                                                 <li><a href="{{ path('app_profile_show') }}">Profile</a></li>
+         
+                                            <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+
+                        <button type="button" class="th-menu-toggle d-block d-lg-none">
+                            <i class="far fa-bars"></i>
+                        </button>
+                    </div>
+
+                    {# RIGHT BUTTONS (desktop only) #}
+                    <div class="col-auto d-none d-xl-block">
+                        <div class="header-button">
+                            {% if app.user %}
+                                <a href="{{ path('app_property_new') }}"
+                                   class="th-btn bg-black pill">
+                                    <i class="fa-regular fa-house-chimney me-2"></i> Add Listing
+                                </a>
+                            {% else %}
+                                <a href="{{ path('app_login') }}"
+                                   class="th-btn bg-black pill">
+                                    <i class="fa-regular fa-house-chimney me-2"></i> Add Listing
+                                </a>
+                            {% endif %}
+
+                            <button type="button" class="sidemenu-bar sideMenuInfo pill">
+                                <span></span><span></span><span></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-wrapper footer-default">
+        <div class="widget-area">
+            <div class="container">
+                <div class="footer-all-widget-wrapper">
+                    <div class="footer-all-widget-item">
+                        <div class="widget footer-widget">
+                            <div class="th-widget-about">
+                                <div class="about-logo">
+                                    <a href="{{ path('app_home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="OneLoc-html"></a>
+                                </div>
+                                <p class="about-text">OneLoc is a luxury to the resilience, adaptability, Spacious modern villa living room with centrally placed swimming pool blending indooroutdoor.</p>
+                                <div class="footer-info-wrap">
+                                    <div class="footer-info"><i class="fas fa-phone"></i> <a href="tel:+00123456789012">+00 (123) 456 789 012</a></div>
+                                    <div class="footer-info"><i class="fas fa-envelope"></i> <a href="mailto:infomail123@domain.com">infomail123@domain.com</a></div>
+                                    <div class="footer-info"><i class="fas fa-location-dot"></i> <span>West 2nd lane, Inner circular road, New York City</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-all-widget-item">
+                        <div class="footer-right-wrap">
+                            <div class="footer-item-wrap">
+                                <div class="footer-item">
+                                    <div class="widget widget_nav_menu footer-widget">
+                                        <h3 class="widget_title">Featured Houses</h3>
+                                        <div class="menu-all-pages-container">
+                                            <ul class="menu">
+                                                <li><a href="#">#Villa</a></li>
+                                                <li><a href="#">#Commercial</a></li>
+                                                <li><a href="#">#Farm Houses</a></li>
+                                                <li><a href="#">#Apartments</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-item">
+                                    <div class="widget widget_nav_menu footer-widget">
+                                        <h3 class="widget_title">Quick Links</h3>
+                                        <div class="menu-all-pages-container">
+                                            <ul class="menu">
+                                                <li><a href="#">Strategy Services</a></li>
+                                                <li><a href="#">Management</a></li>
+                                                <li><a href="#">Privacy & Policy</a></li>
+                                                <li><a href="#">Sitemap</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-item">
+                                    <div class="widget widget_nav_menu footer-widget">
+                                        <h3 class="widget_title">Support</h3>
+                                        <div class="menu-all-pages-container">
+                                            <ul class="menu">
+                                                <li><a href="#">Help Center</a></li>
+                                                <li><a href="#">FAQs</a></li>
+                                                <li><a href="#">Contact Us</a></li>
+                                                <li><a href="#">Ticket Support</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-item">
+                                    <div class="widget widget_banner footer-widget">
+                                        <h3 class="widget_title">OneLoc Location</h3>
+                                        <div class="widget-map">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.7310056272386!2d89.2286059153658!3d24.00527418490799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe9b97badc6151%3A0x30b048c9fb2129bc!2sAngfuztheme!5e0!3m2!1sen!2sbd!4v1658812932163!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-right-bottom-wrap">
+                                <div class="footer-right-bottom-item">
+                                    <div class="footer-right-bottom-item__thumb help">
+                                        <img src="{{ asset('assets/img/icon/footer-default-icon-1-1.png') }}" alt="img">
+                                    </div>
+                                    <div class="footer-right-bottom-item__content">
+                                        <h4 class="box-title"><a href="#">Need to Home buy or sell?</a></h4>
+                                    </div>
+                                </div>
+                                <div class="footer-right-bottom-item scan">
+                                    <div class="footer-right-bottom-item__thumb">
+                                        <img src="{{ asset('assets/img/icon/footer-default-icon-1-2.png') }}" alt="img">
+                                    </div>
+                                    <div class="footer-right-bottom-item__content">
+                                        <p>Download on the</p>
+                                        <h4 class="box-title"><a href="https://www.apple.com/app-store/">App Store</a></h4>
+                                    </div>
+                                    <div class="footer-right-bottom-item__right">
+                                        <img src="{{ asset('assets/img/icon/footer-default-icon-1-2-scan.png') }}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="footer-right-bottom-item scan">
+                                    <div class="footer-right-bottom-item__thumb">
+                                        <img src="{{ asset('assets/img/icon/footer-default-icon-1-3.png') }}" alt="img">
+                                    </div>
+                                    <div class="footer-right-bottom-item__content">
+                                        <p>GET IT ON</p>
+                                        <h4 class="box-title"><a href="https://play.google.com/store/apps">Google Play</a></h4>
+                                    </div>
+                                    <div class="footer-right-bottom-item__right">
+                                        <img src="{{ asset('assets/img/icon/footer-default-icon-1-2-scan.png') }}" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap">
+            <div class="footer-bottom-top-shape animation-infinite" data-bg-src="{{ asset('assets/img/icon/footer-bottom-top-shape.png') }}"></div>
+            <div class="container">
+                <div class="row gy-3 justify-content-lg-between justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                        <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> {{ "now"|date("Y") }} <a href="{{ path('app_home') }}">OneLoc</a>. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="footer-default-copy-right">
+                            <p>Social Media:</p>
+                            <div class="th-social">
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top -->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+
+    <!-- JS Files -->
+    <script src="{{ asset('assets/js/vendor/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/tilt.jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lenis.min.js') }}"></script>
+    <script src="{{ asset('assets/js/360.min.js') }}"></script>
+    <script src="{{ asset('assets/js/panolens.min.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/nice-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>

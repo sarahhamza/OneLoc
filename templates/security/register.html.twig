@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Create Account</h2>
+
+                <form id="registerForm" method="post" action="{{ path('app_register') }}">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label>First Name</label>
+                            <input type="text" name="first_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Phone (optional)</label>
+                        <input type="text" name="phone" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+
+                    <!-- Hidden field for Face ID -->
+                    <input type="hidden" id="face_uuid" name="face_uuid">
+
+                    <!-- Buttons -->
+                    <button type="button" id="face-register-btn" class="btn btn-primary w-100 mb-2">
+                        Register with Face ID
+                    </button>
+                </form>
+
+                <p class="text-center mt-3">
+                    <a href="{{ path('app_login') }}">Already have an account? Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const registerBtn = document.getElementById("face-register-btn");
+        const form = document.getElementById("registerForm");
+        const faceInput = document.getElementById("face_uuid");
+
+        registerBtn.addEventListener("click", async () => {
+            registerBtn.disabled = true;
+            registerBtn.innerText = "Registering Face ID...";
+
+            try {
+                const res = await fetch("http://localhost:5000/register", { method: "POST" });
+                const data = await res.json();
+
+                if (data.status === "success" && data.uuid) {
+                    faceInput.value = data.uuid;
+
+                    // Submit form immediately after Face ID is registered
+                    form.submit();
+                } else {
+                    alert("Face registration failed. Please try again.");
+                    registerBtn.disabled = false;
+                    registerBtn.innerText = "Register with Face ID";
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Error connecting to Face ID server.");
+                registerBtn.disabled = false;
+                registerBtn.innerText = "Register with Face ID";
+            }
+        });
+
+        // Optional: prevent manual form submission if Face ID is required
+        form.addEventListener("submit", (e) => {
+            if (!faceInput.value) {
+                e.preventDefault();
+                alert("Please register your Face ID first!");
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,299 @@
+{# templates/admin/dashboard.html.twig #}
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+<div class="container-fluid py-4">
+    <h2 class="mb-4 text-dark fw-bold">Dashboard</h2>
+
+    {# Flash messages #}
+    {% for type, messages in app.flashes %}
+        {% for msg in messages %}
+            <div class="alert alert-{{ type }} alert-dismissible fade show">
+                {{ msg }} <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {# ---------- STATS CARDS ---------- #}
+    <div class="row g-4 mb-5">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(135deg, #4169e1 0%, #0047ab 100%);">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-1 text-white-50">Total Users</p>
+                            <h2 class="mb-0 fw-bold">{{ stats.users }}</h2>
+                        </div>
+                        <div class="bg-white bg-opacity-25 rounded-circle p-3">
+                            <i class="bi bi-people fs-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(135deg, #ff4136 0%, #dc143c 100%);">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-1 text-white-50">Total Properties</p>
+                            <h2 class="mb-0 fw-bold">{{ stats.properties }}</h2>
+                        </div>
+                        <div class="bg-white bg-opacity-25 rounded-circle p-3">
+                            <i class="bi bi-building fs-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(135deg, #28a745 0%, #218838 100%);">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-1 text-white-50">Total Reservations</p>
+                            <h2 class="mb-0 fw-bold">{{ stats.reservations }}</h2>
+                        </div>
+                        <div class="bg-white bg-opacity-25 rounded-circle p-3">
+                            <i class="bi bi-calendar-check fs-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100" style="background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-1 text-white-50">Pending</p>
+                            <h2 class="mb-0 fw-bold">{{ stats.pending }}</h2>
+                        </div>
+                        <div class="bg-white bg-opacity-25 rounded-circle p-3">
+                            <i class="bi bi-hourglass-split fs-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# ---------- CHARTS ---------- #}
+    <div class="row g-4 mb-5">
+        <div class="col-12 col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-bar-chart-line text-danger me-2"></i>
+                        Statistics Overview
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="overviewChart" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-pie-chart text-danger me-2"></i>
+                        Reservation Status
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# ---------- RECENT ACTIVITY ---------- #}
+    <div class="row g-4">
+        <div class="col-12 col-lg-7">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-people text-danger me-2"></i>
+                        Recent Users (Last 3)
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="border-0">ID</th>
+                                    <th class="border-0">Name</th>
+                                    <th class="border-0">Email</th>
+                                    <th class="border-0">Role</th>
+                                    <th class="border-0">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in lastUsers %}
+                                    <tr>
+                                        <td><span class="badge bg-light text-dark">#{{ user.id }}</span></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bg-danger bg-opacity-10 text-danger rounded-circle p-2 me-2">
+                                                    <i class="bi bi-person-fill"></i>
+                                                </div>
+                                                <strong>{{ user.firstName }} {{ user.lastName }}</strong>
+                                            </div>
+                                        </td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            <span class="badge {{ 'ROLE_ADMIN' in user.getRoles() ? 'bg-danger' : 'bg-secondary' }}">
+                                                {{ 'ROLE_ADMIN' in user.getRoles() ? 'Admin' : 'User' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge {{ user.verified ? 'bg-success' : 'bg-warning text-dark' }}">
+                                                {{ user.verified ? 'Verified' : 'Unverified' }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr><td colspan="5" class="text-center text-muted py-4">No users yet</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="{{ path('admin_users') }}" class="btn btn-sm btn-outline-danger">
+                        View All Users <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-5">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="mb-0 fw-bold text-dark">
+                        <i class="bi bi-calendar-check text-danger me-2"></i>
+                        Recent Reservations (Last 2)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% for reservation in lastReservations %}
+                        <div class="border-start border-danger border-4 bg-light p-3 mb-3 rounded">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0 fw-bold">{{ reservation.property.title }}</h6>
+                                <span class="badge {{ reservation.status == 'pending' ? 'bg-warning text-dark' : (reservation.status == 'accepted' ? 'bg-success' : 'bg-danger') }}">
+                                    {{ reservation.status|capitalize }}
+                                </span>
+                            </div>
+                            <div class="small text-muted">
+                                <i class="bi bi-person me-1"></i>{{ reservation.tenant.email }}
+                            </div>
+                            <div class="small text-muted">
+                                <i class="bi bi-calendar me-1"></i>{{ reservation.checkIn|date('M j') }} - {{ reservation.checkOut|date('M j, Y') }}
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class="text-center text-muted py-4">No reservations yet</p>
+                    {% endfor %}
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="{{ path('admin_reservations') }}" class="btn btn-sm btn-outline-danger">
+                        View All Reservations <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Chart.js #}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Overview Chart (Bar)
+    const ctxOverview = document.getElementById('overviewChart').getContext('2d');
+    new Chart(ctxOverview, {
+        type: 'bar',
+        data: {
+            labels: ['Users', 'Properties', 'Reservations', 'Pending'],
+            datasets: [{
+                label: 'Count',
+                data: [{{ stats.users }}, {{ stats.properties }}, {{ stats.reservations }}, {{ stats.pending }}],
+                backgroundColor: [
+                    'rgba(65, 105, 225, 0.8)',
+                    'rgba(255, 65, 54, 0.8)',
+                    'rgba(40, 167, 69, 0.8)',
+                    'rgba(255, 193, 7, 0.8)',
+                ],
+                borderColor: [
+                    'rgb(65, 105, 225)',
+                    'rgb(255, 65, 54)',
+                    'rgb(40, 167, 69)',
+                    'rgb(255, 193, 7)',
+                ],
+                borderWidth: 2,
+                borderRadius: 8,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+
+    // Status Chart (Doughnut)
+    const ctxStatus = document.getElementById('statusChart').getContext('2d');
+    new Chart(ctxStatus, {
+        type: 'doughnut',
+        data: {
+            labels: ['Pending', 'Accepted', 'Rejected'],
+            datasets: [{
+                data: [
+                    {{ stats.pending }},
+                    {{ stats.reservations - stats.pending }},
+                    0
+                ],
+                backgroundColor: [
+                    'rgba(255, 193, 7, 0.8)',
+                    'rgba(40, 167, 69, 0.8)',
+                    'rgba(255, 65, 54, 0.8)',
+                ],
+                borderColor: [
+                    'rgb(255, 193, 7)',
+                    'rgb(40, 167, 69)',
+                    'rgb(255, 65, 54)',
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

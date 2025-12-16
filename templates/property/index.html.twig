@@ -1,0 +1,323 @@
+{# templates/property/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Properties - OneLoc Real Estate{% endblock %}
+
+{% block body %}
+<!-- Welcome Banner -->
+{% if app.user %}
+    <div class="bg-primary text-white py-3">
+        <div class="container text-center">
+            <h5 class="mb-0" style="color:whitesmoke">
+                Welcome back, <strong>{{ app.user.firstName|default(app.user.email|split('@')[0]) }}</strong>!
+            </h5>
+        </div>
+    </div>
+{% endif %}
+
+
+
+<section class="th-blog-wrapper space-top space-extra-bottom">
+    <div class="container">
+
+        <!-- Results Count + Clear Filters -->
+        <div class="mb-4 d-flex justify-content-between align-items-center">
+            <p class="text-muted mb-0">
+                <strong>{{ properties|length }}</strong> properties found
+            </p>
+            {% if app.request.query.all|length > 0 %}
+                <a href="{{ path('app_property_index') }}" class="btn btn-outline-danger btn-sm">
+                    Clear All Filters
+                </a>
+            {% endif %}
+        </div>
+
+        <!-- Main Grid -->
+        <div class="row gy-40">
+
+            <!-- =================== SIDEBAR FILTERS =================== -->
+            <div class="col-xl-4 col-lg-6">
+                <aside class="sidebar-area">
+                    <div class="widget">
+                        <h3 class="widget_title mb-3">Filter Properties</h3>
+                        <form method="get" class="filter-form">
+
+                            <!-- Search -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Search</label>
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control" 
+                                           placeholder="City, title..." 
+                                           value="{{ app.request.get('search') }}">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+
+                            <!-- Bedrooms -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Bedrooms</label>
+                                <select name="bedrooms" class="form-select">
+                                    <option value="">Any</option>
+                                    {% for i in 1..6 %}
+                                        <option value="{{ i }}" {{ app.request.get('bedrooms') == i ? 'selected' }}>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Bathrooms -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Bathrooms</label>
+                                <select name="bathrooms" class="form-select">
+                                    <option value="">Any</option>
+                                    {% for i in 1..5 %}
+                                        <option value="{{ i }}" {{ app.request.get('bathrooms') == i ? 'selected' }}>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <!-- Price Range -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Price Range</label>
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <input type="number" name="price_min" class="form-control" 
+                                               placeholder="Min" value="{{ app.request.get('price_min') }}">
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" name="price_max" class="form-control" 
+                                               placeholder="Max" value="{{ app.request.get('price_max') }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sort -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Sort By</label>
+                                <select name="sort" class="form-select">
+                                    <option value="">Default</option>
+                                    <option value="price_asc" {{ app.request.get('sort') == 'price_asc' ? 'selected' }}>Price: Low to High</option>
+                                    <option value="price_desc" {{ app.request.get('sort') == 'price_desc' ? 'selected' }}>Price: High to Low</option>
+                                    <option value="newest" {{ app.request.get('sort') == 'newest' ? 'selected' }}>Newest First</option>
+                                </select>
+                            </div>
+
+                            <!-- Apply Button -->
+                            <div class="d-grid">
+                                <div class="form-btn pt-2"><button type="submit" class="th-btn radius">Apply Filters</button></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Other Sidebar Widgets -->
+                    <div class="widget">
+                        <h3 class="widget_title">Featured Listings</h3>
+                        <div class="recent-post-wrap featured-listing">
+                            <p class="text-center text-muted">Coming soon...</p>
+                        </div>
+                    </div>
+
+                    <div class="widget sidebar-contact-form">
+                        <h3 class="widget_title">Contact Us</h3>
+                        <div class="contact-form-widget">
+                            <form class="newsletter-form">
+                                <div class="form-group"><input class="form-control" type="text" placeholder="Your Name" required></div>
+                                <div class="form-group"><input class="form-control" type="email" placeholder="Your Email" required></div>
+                                <div class="form-group"><input class="form-control" type="text" placeholder="Your Phone" required></div>
+                                <div class="form-group mb-4"><textarea class="form-control" placeholder="Your Message"></textarea></div>
+                                <div class="form-btn pt-2"><button type="submit" class="th-btn radius">Send Us</button></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="widget widget_banner" data-bg-src="{{ asset('assets/img/bg/widget_banner.jpg') }}">
+                        <div class="widget-banner">
+                            <h2 class="title">We can help you to find real estate agency</h2>
+                            <a href="#" class="th-btn radius">Contact with Agent</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- =================== PROPERTY LIST =================== -->
+            <div class="col-xl-8 col-lg-12">
+                <div class="row gy-30">
+                    {% for property in properties %}
+                        <div class="col-xl-12">
+                            <div class="popular-list-1 list-style">
+                                <div class="thumb-wrapper">
+                                    <div class="th-slider" data-slider-options='{"loop":false,"autoplay":false,"autoHeight":true,"effect":"fade"}'>
+                                        <div class="swiper-wrapper">
+                                            {% for photo in property.photos|slice(0, 2) %}
+                                                <div class="swiper-slide">
+                                                    <a class="popular-popup-image" href="{{ asset('uploads/properties/' ~ photo) }}">
+                                                        <img src="{{ asset('uploads/properties/' ~ photo) }}" alt="{{ property.title }}">
+                                                    </a>
+                                                </div>
+                                            {% else %}
+                                                <div class="swiper-slide">
+                                                    <img src="{{ asset('assets/img/placeholder.jpg') }}" alt="No photo">
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="icon-wrap">
+                                            <button class="slider-arrow slider-prev"><</button>
+                                            <button class="slider-arrow slider-next">></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="actions-style-2-wrapper">
+                                        <div class="actions style-2">
+                                            {% if property.photos|length > 0 %}
+                                                <a href="{{ asset('uploads/properties/' ~ property.photos[0]) }}" class="icon-btn popular-popup-image">
+                                                    <span class="action-text">View all img</span>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="popular-badge">
+                                        <img src="{{ asset('assets/img/icon/sell_rent_icon.svg') }}" alt="icon">
+                                    </div>
+                                </div>
+
+                                <div class="property-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title">
+                                            <a href="{{ path('app_property_show', { id: property.id }) }}">{{ property.title }}</a>
+                                        </h3>
+                                        <div class="box-text">
+                                            <div class="icon"><img src="{{ asset('assets/img/icon/popular-location.svg') }}" alt="icon"></div>
+                                            {{ property.address }}
+                                        </div>
+                                    </div>
+
+                                    <ul class="property-featured">
+                                        <li><div class="icon"><img src="{{ asset('assets/img/icon/bed.svg') }}" alt="icon"></div> Bed {{ property.bedrooms }}</li>
+                                        <li><div class="icon"><img src="{{ asset('assets/img/icon/bath.svg') }}" alt="icon"></div> Bath {{ property.bathrooms }}</li>
+                                        <li><div class="icon"><img src="{{ asset('assets/img/icon/sqft.svg') }}" alt="icon"></div> {{ property.area }} sqft</li>
+                                    </ul>
+
+                                    <div class="property-bottom">
+                                        <h6 class="box-title">${{ property.price|number_format(2) }}</h6>
+                                        <a class="th-btn sm style3 pill" href="{{ path('app_property_show', { id: property.id }) }}">View More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col-12 text-center py-5">
+                            <img src="{{ asset('assets/img/empty.svg') }}" alt="No results" width="100" class="mb-3">
+                            <h5 class="text-muted">No properties match your search.</h5>
+                            <a href="{{ path('app_property_index') }}" class="btn btn-primary mt-3">Show All</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# OneLoc AI Chatbot Widget #}
+<div id="oneloc-chatbot" class="position-fixed" style="bottom: 20px; right: 20px; z-index: 1050;">
+    <button id="chat-toggle" class="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+            style="width: 60px; height: 60px; font-size: 1.5rem;" title="Ask OneLoc AI">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <div id="chat-widget" class="card shadow-lg" style="display: none; width: 380px; height: 520px; position: absolute; bottom: 80px; right: 0;">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center p-3">
+            <h6 class="mb-0">OneLoc AI</h6>
+            <button id="chat-close" class="btn-close btn-close-white"></button>
+        </div>
+        <div id="chat-messages" class="card-body p-3" style="height: 380px; overflow-y: auto; background: #f8f9fa;">
+            <div class="text-center text-muted py-3">
+                <div class="spinner-border spinner-border-sm text-primary"></div>
+                <p class="mt-2 mb-0">Loading AI...</p>
+            </div>
+        </div>
+        <div class="card-footer bg-white p-3">
+            <div class="input-group">
+                <input type="text" id="chat-input" class="form-control" placeholder="Ask about OneLoc..." maxlength="500">
+                <button id="chat-send" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <small class="text-muted d-block mt-1">e.g., "How to list a property?"</small>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('chat-toggle');
+    const widget = document.getElementById('chat-widget');
+    const close = document.getElementById('chat-close');
+    const input = document.getElementById('chat-input');
+    const send = document.getElementById('chat-send');
+    const messages = document.getElementById('chat-messages');
+
+    // Show welcome
+    setTimeout(() => {
+        messages.innerHTML = '<div class="bot-message"><strong>OneLoc AI:</strong> Hello! Ask me about properties, reservations, or how to use the app.</div>';
+    }, 800);
+
+    toggle.onclick = () => widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+    close.onclick = () => widget.style.display = 'none';
+
+    function addMessage(text, type) {
+        const div = document.createElement('div');
+        div.className = type === 'user' ? 'text-end mb-2' : 'mb-2';
+        div.innerHTML = `<div class="${type === 'user' ? 'bg-primary text-white' : 'bg-light border'} p-3 rounded-3 d-inline-block" style="max-width: 85%;">${escapeHtml(text)}</div>`;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML.replace(/\n/g, '<br>');
+    }
+
+    function sendMessage() {
+        const text = input.value.trim();
+        if (!text) return;
+        if (text.length > 500) return alert('Too long!');
+
+        addMessage(text, 'user');
+        input.value = '';
+        input.disabled = true;
+        send.disabled = true;
+
+        fetch('{{ path('api_chat') }}', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'message=' + encodeURIComponent(text)
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                addMessage(data.message, 'bot');
+            } else {
+                addMessage(data.message || 'Error.', 'bot');
+            }
+        })
+        .catch(() => addMessage('Network error.', 'bot'))
+        .finally(() => {
+            input.disabled = false;
+            send.disabled = false;
+            input.focus();
+        });
+    }
+
+    send.onclick = sendMessage;
+    input.addEventListener('keypress', e => e.key === 'Enter' && sendMessage());
+});
+</script>
+
+<style>
+#chat-messages { font-size: 0.95rem; }
+#chat-input:focus { box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }
+.bot-message { color: #333; }
+</style>
+{% endblock %}

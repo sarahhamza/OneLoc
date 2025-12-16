@@ -1,18 +1,14 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+# config/services.yaml
 parameters:
+    uploads_dir: '%kernel.project_dir%/public/uploads'
+    gemini_api_key: 'AIzaSyDkpz3hYv9nelCGKqiBnlsmpF-5fMsEu9Y'
+
 
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true
+        autoconfigure: true
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
         exclude:
@@ -20,5 +16,18 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # ONLY THIS — fixes the array argument
+    Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber:
+        arguments:
+            $options:
+                pageParameterName: page
+                sortFieldParameterName: sort
+                sortDirectionParameterName: direction
+                filterFieldParameterName: filterField
+                filterValueParameterName: filterValue
+                distinct: true
+                pageOutOfRange: ignore
+    App\Service\GeminiChatService:
+        arguments:
+            $gemini_api_key: '%gemini_api_key%'
+

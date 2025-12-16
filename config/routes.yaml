@@ -3,3 +3,33 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_register:
+    path: /register
+    controller: App\Controller\SecurityController::register
+
+app_logout:
+    path: /logout
+
+property_index:
+    path: /
+    controller: App\Controller\PropertyController::index
+
+property_new:
+    path: /property/new
+    controller: App\Controller\PropertyController::new
+
+property_show:
+    path: /property/{id}
+    controller: App\Controller\PropertyController::show
+
+property_my:
+    path: /my-listings
+    controller: App\Controller\PropertyController::my
+
+reservation_new:
+    path: /property/{id}/reserve
+    controller: App\Controller\ReservationController::new

@@ -1,0 +1,33 @@
+# config/packages/security.yaml
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                username_parameter: email  
+                password_parameter: password
+                enable_csrf: true
+            logout:
+                path: app_logout
+                target: app_property_index
+
+    access_control:
+        - { path: ^/owner, roles: ROLE_USER }
+        - { path: ^/property/new, roles: ROLE_USER }
+        - { path: ^/property/.*/edit, roles: ROLE_USER }

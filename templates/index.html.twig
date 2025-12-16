@@ -1,0 +1,932 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="th-hero-wrapper hero-2" id="hero">
+        <div class="slider-2-scroll-down scroll-down">
+            <a href="#about-sec" class="scroll-wrap">
+                <span></span>
+            </a>
+            <span class="scroll-text">Scroll</span>
+        </div>
+        <div class="hero-2-social">
+            <div class="th-social">
+                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="th-container22">
+            <div class="hero-inner hero-style2" data-mask-src="assets/img/hero/hero-2-bg-mask.png">
+                <video class="hero-video" id="video" src="/assets/img/hero/hero-2-video.mp4" loop="" muted="" autoplay=""></video>
+                <div class="row justify-content-center gy-50 gx-40 align-items-center">
+                    <div class="col-xxl-8 col-xl-9 col-lg-11">
+                        <div class="hero-2-content text-center">
+                            <div class="hero-img-shape-2 fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s">
+                                <div class="logo-icon-wrap">
+                                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="logo-icon popup-video">
+                                        <i class="fa-sharp fa-solid fa-play"></i>
+                                    </a>
+                                    <div class="logo-icon-wrap__text">
+                                        <span class="logo-animation">ONELOC REAL ESTATE HOME * REAL ESTATE</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="hero-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s"> Find Your <span class="title2 text-theme"> Perfect Home </span> For Spending Life </h1>
+
+     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--======== / Hero Section ========-->
+
+
+    <!-- Hero 2 Advance Search   -->
+    <div class="advance-search-wrapper stye-2">
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select name="location" id="location" class="form-select nice-select">
+                <option value="" disabled selected hidden>Select Location</option>
+                <option value="new_york">New York</option>
+                <option value="los_angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mini_area">Mini Area (Sqft)</label>
+            <select name="mini_area" id="mini_area" class="form-select nice-select">
+                <option value="" disabled selected hidden>Select Area</option>
+                <option value="500">500 Sqft</option>
+                <option value="1000">1000 Sqft</option>
+                <option value="1500">1500 Sqft</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="max_area">Max Area (Sqft)</label>
+            <select name="max_area" id="max_area" class="form-select nice-select">
+                <option value="" disabled selected hidden>Select Max Area</option>
+                <option value="2000">2000 Sqft</option>
+                <option value="3000">3000 Sqft</option>
+                <option value="4000">4000 Sqft</option>
+            </select>
+        </div>
+    </div><!--==============================
+Category Area  
+==============================-->
+    <section id="category-sec" class="category-sec-1 position-relative space bg-smoke">
+        <div class="shape-mockup moving d-none d-md-block" data-top="12%" data-left="7%">
+            <img src="assets/img/shape/category-1-left.png" alt="img">
+        </div>
+        <div class="shape-mockup jump d-none d-md-block" data-top="14%" data-right="2%">
+            <img src="assets/img/shape/category-1-right.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="title-area text-center mb-50">
+                <h3 class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span> CATEGORIES</h3>
+                <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">Choose Your Property Type</h2>
+            </div>
+            <div class="slider-area">
+                <div class="swiper th-slider" id="categorySlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"400":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"5"}, "1300":{"slidesPerView":"6"}}}'>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_1.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Apartment</a></h3>
+                                <p class="box-subtitle">12 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_2.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">House</a></h3>
+                                <p class="box-subtitle">10 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_3.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Land/Plot</a></h3>
+                                <p class="box-subtitle">02 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_4.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Townhouse</a></h3>
+                                <p class="box-subtitle">05 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_5.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Penthouse</a></h3>
+                                <p class="box-subtitle">02 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_6.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Cottage</a></h3>
+                                <p class="box-subtitle">11 Property</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="box-icon">
+                                    <img src="assets/img/icon/category_card_1.svg" alt="Image">
+                                </div>
+                                <h3 class="box-title"><a href="property.html">Kawasaki</a></h3>
+                                <p class="box-subtitle">14 Property</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--==============================
+About Area  
+==============================-->
+    <div class="about-1-wrapper space overflow-hidden" id="about-sec">
+        <div class="shape-mockup " data-bottom="0" data-left="0">
+            <img src="assets/img/icon/about-2-shape.png" alt="img">
+        </div>
+        <div class="shape-mockup spin d-none d-lg-block" data-bottom="11%" data-left="5%">
+            <img src="assets/img/icon/circle-start.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="row gy-40 gx-70 justify-content-center">
+                <div class="col-xl-7">
+                    <div class="img-box1 about-1 fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">
+                        <div class="about-logo-wrap-2">
+                            <div class="logo-icon-wrap">
+                                <div class="logo-icon">
+                                    <img src="assets/img/icon/logo-circle-icon.png" alt="img">
+                                </div>
+                                <div class="logo-icon-wrap__text">
+                                    <span class="logo-animation">ONELOC REAL ESTATE HOME * REAL ESTATE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-left">
+                            <div class="img-box">
+                                <img src="https://images.squarespace-cdn.com/content/v1/65a8583b3f2bb32732bff587/63ff3986-3c95-4422-bdaa-6a373b71140d/Custom-Luxury-Home-Dallas.jpg" alt="Image">
+                            </div>
+                            <div class="img-box small">
+                                <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOHL0122005_1560x880_desktop.jpg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="about-middle">
+                            <img class="tilt-active" src="https://d15zjc2r4e8kr7.cloudfront.net/9129/blog/LuxuryLiving.jpg" alt="Image">
+                        </div>
+                        <div class="about-right">
+                            <div class="img-box small">
+                                <img src="https://images.squarespace-cdn.com/content/v1/65a8583b3f2bb32732bff587/63ff3986-3c95-4422-bdaa-6a373b71140d/Custom-Luxury-Home-Dallas.jpg" alt="Image">
+                            </div>
+                            <div class="img-box big">
+                                <img src="https://www.bellacollina.com/hubfs/Real%20Estate/Custom%20Built%20Homes.jpg" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="title-area text-left mb-50">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span> About Us</p>
+                        <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">Discover Our Luxury Property, with Full Amenities</h2>
+                        <p class="sec-text fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.5s">Simply scan the QR code on the right with your phone’s camera, then click the prompt to open the app download page.</p>
+                    </div>
+                    <div class="row gy-4 gx-60 mb-4">
+                        <div class="col-lg-6 col-md-6 fadeinup wow">
+                            <div class="about-1-item">
+                                <div class="icon">
+                                    <img src="assets/img/icon/about-1-1.svg" alt="icon">
+                                </div>
+                                <div class="content">
+                                    <h3 class="box-title">Quality Services</h3>
+                                    <p class="box-text">Deals with issues in the exhaust system, ensuring </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 fadeinup wow">
+                            <div class="about-1-item">
+                                <div class="icon">
+                                    <img src="assets/img/icon/about-1-2.svg" alt="icon">
+                                </div>
+                                <div class="content">
+                                    <h3 class="box-title">Clients Feedback</h3>
+                                    <p class="box-text">Ensuring the exhaust system deals issues properly. </p>
+                                    <p class="box-text"> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 fadeinup wow">
+                            <div class="about-1-item">
+                                <div class="icon">
+                                    <img src="assets/img/icon/about-1-3.svg" alt="icon">
+                                </div>
+                                <div class="content">
+                                    <h3 class="box-title">Space Belongings</h3>
+                                    <p class="box-text">Ensuring that issues in the system are dealt with.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 fadeinup wow">
+                            <div class="about-1-item">
+                                <div class="icon">
+                                    <img src="assets/img/icon/about-1-4.svg" alt="icon">
+                                </div>
+                                <div class="content">
+                                    <h3 class="box-title">Personal Liability</h3>
+                                    <p class="box-text">Exhaust system deals with all issues efficiency. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="about-bottom-wrap fadeinup wow">
+                                <a href="about.html" class="th-btn bg-black pill">
+                                    More About Us
+                                </a>
+                                <div class="about1-call-wrapper">
+                                    <div class="icon"><i class="fa-regular fa-phone"></i></div>
+                                    <div class="content">
+                                        <p>Free Consulting</p>
+                                        <a href="tel:+00(123)45678900" class="link">+00 (123) 456789 00</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Why choose Area  
+==============================-->
+    <div class="why-sec-2 bg-smoke space" id="why-sec">
+        <div class="shape-mockup jump d-none d-md-block" style="top: 20%; right: 5%;">
+            <img src="assets/img/shape/why-2-shape.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="title-area text-center">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span> What We Do</p>
+                        <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">The Benefits For You</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-30 align-items-center justify-content-center">
+                <div class="col-xl-4 col-lg-6 col-md-6 fadeinup wow">
+                    <div class="why-card-1 style-2">
+                        <div class="hover-icon">
+                            <img src="assets/img/icon/why-hover-icon-1.png" alt="img">
+                        </div>
+                        <h4 class="count">01</h4>
+                        <div class="why-card-1__icon">
+                            <img src="assets/img/icon/why-icon-1-1.svg" alt="image">
+                        </div>
+                        <div class="why-card-1__content">
+                            <h3 class="box-title">Find your perfect new home</h3>
+                            <p class="box-text"> Velox surgo clarus tantillus confido carus video lumen cedo virtus spes decerno. </p>
+                        </div>
+                        <div class="why-card-1__bottom">
+                            <a class="th-btn style3 pill bg-white w-100" href="property-details.html">Find a Home</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 fadeinup wow">
+                    <div class="why-card-1 style-2">
+                        <div class="hover-icon">
+                            <img src="assets/img/icon/why-hover-icon-1.png" alt="img">
+                        </div>
+                        <h4 class="count">02</h4>
+                        <div class="why-card-1__icon">
+                            <img src="assets/img/icon/why-icon-1-2.svg" alt="image">
+                        </div>
+                        <div class="why-card-1__content">
+                            <h3 class="box-title">You build wealth effortlessly </h3>
+                            <p class="box-text"> Altus cedo tantillus video patrocinor valeo carus subseco vestrum credo virtus. </p>
+                        </div>
+                        <div class="why-card-1__bottom">
+                            <a class="th-btn style3 pill bg-white w-100" href="property-details.html">Sell a Home</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 fadeinup wow">
+                    <div class="why-card-1 style-2">
+                        <div class="hover-icon">
+                            <img src="assets/img/icon/why-hover-icon-1.png" alt="img">
+                        </div>
+                        <h4 class="count">03</h4>
+                        <div class="why-card-1__icon">
+                            <img src="assets/img/icon/why-icon-1-3.svg" alt="image">
+                        </div>
+                        <div class="why-card-1__content">
+                            <h3 class="box-title">You rent and love it like your own</h3>
+                            <p class="box-text">Tantillus certe patrocinor video adipisci valeo carus. Subseco vestrum taedium.</p>
+                        </div>
+                        <div class="why-card-1__bottom">
+                            <a class="th-btn style3 pill bg-white w-100" href="property-details.html">Rent a Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Feature Area  
+==============================-->
+
+    <!--==============================
+Gallery Area  
+==============================-->
+    <div class="gallery-sec-2 overflow-hidden bg-smoke space overflow-hidden">
+        <div class="shape-mockup moving d-none d-md-block" style="top: 12%; left: 7%;">
+            <img src="assets/img/shape/gallery-sec-1-left.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="title-area text-center">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span>Explore Cities</p>
+                        <h2 class="sec-title mb-2 fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">Explore The Neighborhoods</h2>
+                        <p class="box-text fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.5s">Find your dream apartment with our listing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-2-slider-wrap">
+                <div class="slider-area">
+                    <div class="swiper th-slider has-shadow gallery-1" id="gallerySlider1" data-slider-options='{"centeredSlides":false,"loop":true,"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"4"}}}'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOHL0122005_1560x880_desktop.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">250 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">London, United Kngdom</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://d15zjc2r4e8kr7.cloudfront.net/9129/blog/LuxuryLiving.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">135 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">New Jersey, New York</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://images.squarespace-cdn.com/content/v1/65a8583b3f2bb32732bff587/63ff3986-3c95-4422-bdaa-6a373b71140d/Custom-Luxury-Home-Dallas.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">225 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">Cape Town, South Africa</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://images.squarespace-cdn.com/content/v1/65a8583b3f2bb32732bff587/63ff3986-3c95-4422-bdaa-6a373b71140d/Custom-Luxury-Home-Dallas.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">143 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">Los Angeles, New York</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://images.squarespace-cdn.com/content/v1/65a8583b3f2bb32732bff587/63ff3986-3c95-4422-bdaa-6a373b71140d/Custom-Luxury-Home-Dallas.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">321 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">Seoul, South Korea</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOHL0122005_1560x880_desktop.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">212 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">Seoul, South Korea</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://d15zjc2r4e8kr7.cloudfront.net/9129/blog/LuxuryLiving.jpg" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">432 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">London, United Kngdom</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="gallery-card style-2">
+                                    <div class="gallery-img">
+                                        <img src="https://media.homefiniti.com/371/2025/5/2/Website_Hero_Image_Builder_of_the_Year_2.png" alt="gallery image">
+                                        <div class="gallery-content">
+                                            <div class="gallery-content-wrapper">
+                                                <div class="left-content">
+                                                    <p class="box-text">211 Properties</p>
+                                                    <h2 class="box-title"><a href="property-details.html">New Jersey, New York</a></h2>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="property-details.html"><i class="far fa-arrow-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button data-slider-prev="#gallerySlider1" class="slider-arrow slider-prev style2"><i class="far fa-arrow-left"></i></button>
+                        <button data-slider-next="#gallerySlider1" class="slider-arrow slider-next style2"><i class="far fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Property Values Area  
+==============================-->
+    <section class="property-values-sec-2  space overflow-hidden">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="title-area text-center">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span> Properties Values </p>
+                        <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s"> Trusted by 100+ Million Buyers </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-4 justify-content-center align-items-center">
+                <div class="col-lg-4 col-md-12">
+                    <div class="property-values-2-item">
+                        <div class="thumb">
+                            <img src="https://dlczb9lfz9r73.cloudfront.net/wp-content/uploads/2025/03/04081743/241007194749-05387-TobinRogers-1.jpg" alt="img">
+                            <div class="plus-icon"><i class="fa-solid fa-plus"></i></div>
+                            <div class="hover-content">
+                                <h4 class="box-title"><a href="property-details.html">Top Rated Villa</a></h4>
+                                <p class="box-text">Find the very best villas with in-depth reviews and ratngs from multiple experts.</p>
+                                <a class="th-btn bg-theme pill" href="property-details.html">Search Villas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="property-values-2-item ">
+                        <div class="thumb">
+                            <img src="https://media.homefiniti.com/371/2025/5/2/Website_Hero_Image_Builder_of_the_Year_2.png" alt="img">
+                            <div class="plus-icon"><i class="fa-solid fa-plus"></i></div>
+                            <div class="hover-content">
+                                <h4 class="box-title"><a href="property-details.html">Royal Garden Estate</a></h4>
+                                <p class="box-text">Find the very best villas with in-depth reviews and ratngs from multiple experts.</p>
+                                <a class="th-btn bg-theme pill" href="property-details.html">Search Villas</a>
+                            </div>
+                        </div>
+                        <div class="thumb">
+                            <img src="https://i.pinimg.com/736x/1f/aa/02/1faa02a858ccf78ba0770f5682702080.jpg" alt="img">
+                            <div class="plus-icon"><i class="fa-solid fa-plus"></i></div>
+                            <div class="hover-content">
+                                <h4 class="box-title"><a href="property-details.html">Low Rated Villa</a></h4>
+                                <p class="box-text">Find the very best villas with in-depth reviews and ratngs from multiple experts.</p>
+                                <a class="th-btn bg-theme pill" href="property-details.html">Search Villas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="property-values-2-item">
+                        <div class="thumb">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT46c4gieFGfw11m6pbLc2S5c5c-VpaCP2xog&s" alt="img">
+                            <div class="plus-icon"><i class="fa-solid fa-plus"></i></div>
+                            <div class="hover-content">
+                                <h4 class="box-title"><a href="property-details.html">Palm Grove Escape</a></h4>
+                                <p class="box-text">Find the very best villas with in-depth reviews and ratngs from multiple experts.</p>
+                                <a class="th-btn bg-theme pill" href="property-details.html">Search Villas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--==============================
+Team Area  
+==============================-->
+
+    <!--==============================
+Marquee Area  
+==============================-->
+    <div class="marquee-section overflow-hidden overflow-hidden bg-smoke">
+        <div class="marquee-bg-wrap"></div>
+        <div class="marquee-wrapper">
+            <div class="marquee">
+                <div class="marquee-group">
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                </div>
+                <div class="marquee-group">
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Pet-friendly Rental Houses</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Deluxe Cottage - Explore Now!</a></div>
+                    <div class="text"><a href="service.html"> <img src="assets/img/icon/marquee-icon-1-1.svg" alt="img">Luxury Home Available - Explore Now!</a></div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Feature Area  
+==============================-->
+ 
+    <section class="testi-card-area-2 space overflow-hidden">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="title-area text-center">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span>Testimonials</p>
+                        <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">What Clients Say About ONELOC</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-4 justify-content-center">
+                <div class="testi-card-slide">
+                    <div class="swiper has-shadow th-slider" id="testiSlide1" data-slider-options='{"centeredSlides":true,"paginationType": "progressbar","loop":true,"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"1"},"992":{"slidesPerView":"1"},"1200":{"slidesPerView":"1"}}}'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testi-block style-2" dir="ltr">
+                                    <div class="top-wrap">
+                                        <div class="quote">
+                                            <img src="assets/img/icon/testi-2quote.svg" alt="quote">
+                                        </div>
+                                    </div>
+                                    <div class="testi-content pe-xl-5 px-xl-5">
+                                        <p class="box-text">“Adinventitias sequi cerno cedo vapulus adhaero decretum suppono iure voluptate. Trans triumphus toties sed cogito carbo valetudo aequus ciminatio conventus. Voluptates decimus vorago suadeo. Culpo carmen adnuo. Verecundia capio denego. Tracto caterva cavus denique culpa vigor tergum possimus. Aer arceo umerus asperiores templum desidero caritas. Velum adipisci verumtamen comparo ascisco ceno vitiosus aeneus tenetur bibo.”</p>
+                                    </div>
+                                    <div class="bottom-wrap">
+                                        <div class="box-review">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="team-img">
+                                            <img src="assets/img/testimonial/testi-2-1.jpg" alt="Team">
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="box-title">Georgia Schaden</h3>
+                                            <p class="text">Property owner</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-block style-2" dir="ltr">
+                                    <div class="top-wrap">
+                                        <div class="quote">
+                                            <img src="assets/img/icon/testi-2quote.svg" alt="quote">
+                                        </div>
+                                    </div>
+                                    <div class="testi-content pe-xl-5 px-xl-5">
+                                        <p class="box-text">“Tenax comitatus ambulo regnum eligo, conturbo vis caelum cohors. Infit ustulo adoptio collum, speciosus lumen soluta. Condico spiculum ratio, sopor conventus adversus fiducia. Arma arcesso altaria impleo pax laboriosus. Tracto caterva cavus denique culpa vigor tergum possimus. Aer arceo umerus asperiores templum desidero caritas. Trepide asporto momentum, Tracto caterva cavus denique culpa vigor. virgo sollemne aurora amo”</p>
+                                    </div>
+                                    <div class="bottom-wrap">
+                                        <div class="box-review">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="team-img">
+                                            <img src="assets/img/testimonial/testi-2-2.jpg" alt="Team">
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="box-title">Walter Deckow</h3>
+                                            <p class="text">Property owner</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-block style-2" dir="ltr">
+                                    <div class="top-wrap">
+                                        <div class="quote">
+                                            <img src="assets/img/icon/testi-2quote.svg" alt="quote">
+                                        </div>
+                                    </div>
+                                    <div class="testi-content pe-xl-5 px-xl-5">
+                                        <p class="box-text">“Contendo votum traho clamo statim suffragium numquam teneo. Altus iudicium versor, perpetuus velum pax vestigium carpo. Candidus firmamentum celo, voluptas optio demitto sonitus. Obduro casus adinventio vestigium amplitudo sumo.vestigium carpo. Candidus firmamentum celo, voluptas Concido laboriosam varietas amplector, aureus stella sursum approbo. Gravitas turbo decet, hhe adulescens perpetuus auxilium comes virga.”</p>
+                                    </div>
+                                    <div class="bottom-wrap">
+                                        <div class="box-review">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="team-img">
+                                            <img src="assets/img/testimonial/testi-2-1.jpg" alt="Team">
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="box-title">Carlos Bauch</h3>
+                                            <p class="text">Property owner</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-block style-2" dir="ltr">
+                                    <div class="top-wrap">
+                                        <div class="quote">
+                                            <img src="assets/img/icon/testi-2quote.svg" alt="quote">
+                                        </div>
+                                    </div>
+                                    <div class="testi-content pe-xl-5 px-xl-5">
+                                        <p class="box-text">“Tenax comitatus ambulo regnum eligo, conturbo vis caelum cohors. Infit ustulo adoptio collum, speciosus lumen soluta. Condico spiculum ratio, sopor conventus adversus fiducia. Arma arcesso altaria impleo pax laboriosus. Trepide asporto momentum, virgo sollemne aurora amo. Cedo umquam cedo summisse damnum reiciendis veritas flamma. Tempus appono validus translatio, Exemplum adnuo sponte voluntas radius caecus exsisto.”</p>
+                                    </div>
+                                    <div class="bottom-wrap">
+                                        <div class="box-review">
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                            <i class="fa-sharp fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="team-img">
+                                            <img src="assets/img/testimonial/testi-2-2.jpg" alt="Team">
+                                        </div>
+                                        <div class="content">
+                                            <h3 class="box-title">Julia Era</h3>
+                                            <p class="text">Property owner</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-controller container-width">
+                            <button data-slider-prev="#testiSlide1" class="slider-arrow default  slider-prev"><i class="far fa-arrow-left"></i></button>
+                            <div class="slider-pagination style-2" data-slider-id="#testiSlider1"></div>
+                            <button data-slider-next="#testiSlide1" class="slider-arrow default  slider-next"><i class="far fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testi-bottom-review-wrap">
+                        <div class="testi-bottom-item">
+                            <div class="trust-content">
+                                <div class="icon"><img src="assets/img/icon/star-icon.svg" alt="img"></div>
+                                <h4 class="box-title">Trustipilot</h4>
+                            </div>
+                            <div class="bottom">
+                                <div class="avatar">
+                                    <img src="assets/img/hero/heror-1-avator-group.png" alt="img">
+                                </div>
+                                <div class="content">
+                                    <div class="th-social">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <h4 class="review-title"><span class="number"><span class="counter-number">19</span>k+</span> clients</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="testi-bottom-item">
+                            <div class="trust-content">
+                                <div class="icon"><img src="assets/img/icon/google-icon.svg" alt="img"></div>
+                                <h4 class="box-title">Google</h4>
+                            </div>
+                            <div class="bottom">
+                                <div class="avatar">
+                                    <img src="assets/img/hero/heror-1-avator-group-2.png" alt="img">
+                                </div>
+                                <div class="content">
+                                    <div class="th-social">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <h4 class="review-title"><span class="number"><span class="counter-number">25</span>k+</span> clients</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--==============================
+Faq Area
+==============================-->
+    <div class="space bg-smoke">
+        <div class="shape-mockup" style="bottom: 0; left: 0%;">
+            <img src="assets/img/shape/faq-2-shape.png" alt="img">
+        </div>
+        <div class="shape-mockup spin d-none d-lg-block" style="bottom: 11%; left: 7%;">
+            <img src="assets/img/shape/faq-2-circle-shape.png" alt="img">
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-between gy-4">
+                <div class="col-lg-5 col-xl-5 col-xxl-4">
+                    <div class="title-area text-left pe-xxl-5">
+                        <p class="sub-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> <span class="double-line"></span>FAQ</p>
+                        <h2 class="sec-title fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.3s">What would you like to know about ONELOC?</h2>
+                        <p class="sec-text fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.5s">Ancilla cogo cognomen absorbeo coerceo apto. Ago vulgaris absens decor. Valetudo urbs sollers. Ter tricesimus currus aro vilis suadeo ulterius aveho.</p>
+                        <a href="about.html" class="th-btn bg-black pill fadeinup wow" data-wow-duration="1.5s" data-wow-delay="0.1s"> Free Consultation </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-7 col-xxl-7">
+                    <div class="accordion-1 accordion" id="faqAccordion">
+
+
+                        <div class="accordion-card active">
+                            <div class="accordion-header" id="collapse-item-1">
+                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1"><span class="serial-numb">1. </span> What is ONELOC real estate?</button>
+                            </div>
+                            <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="collapse-item-1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p class="faq-text"> Most Islamic centers offer charity programs, counseling, and financial assistance for those in need. Non-Muslims are welcome to visit mosques. They should dress modestly and remove their shoes upon entering. You can attend community events, volunteer at the mosque, join study circles, or participate in outreach programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-card ">
+                            <div class="accordion-header" id="collapse-item-2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2"><span class="serial-numb">2. </span> How to work ONELOC all services?</button>
+                            </div>
+                            <div id="collapse-2" class="accordion-collapse collapse " aria-labelledby="collapse-item-2" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p class="faq-text"> Most Islamic centers offer charity programs, counseling, and financial assistance for those in need. Non-Muslims are welcome to visit mosques. They should dress modestly and remove their shoes upon entering. You can attend community events, volunteer at the mosque, join study circles, or participate in outreach programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-card ">
+                            <div class="accordion-header" id="collapse-item-3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3"><span class="serial-numb">3. </span> What resources are available for interfaith dialogue?</button>
+                            </div>
+                            <div id="collapse-3" class="accordion-collapse collapse " aria-labelledby="collapse-item-3" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p class="faq-text"> Most Islamic centers offer charity programs, counseling, and financial assistance for those in need. Non-Muslims are welcome to visit mosques. They should dress modestly and remove their shoes upon entering. You can attend community events, volunteer at the mosque, join study circles, or participate in outreach programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-card ">
+                            <div class="accordion-header" id="collapse-item-4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4"><span class="serial-numb">4. </span> What programs are available for developer?</button>
+                            </div>
+                            <div id="collapse-4" class="accordion-collapse collapse " aria-labelledby="collapse-item-4" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p class="faq-text"> Most Islamic centers offer charity programs, counseling, and financial assistance for those in need. Non-Muslims are welcome to visit mosques. They should dress modestly and remove their shoes upon entering. You can attend community events, volunteer at the mosque, join study circles, or participate in outreach programs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-card ">
+                            <div class="accordion-header" id="collapse-item-5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5"><span class="serial-numb">5. </span> How can I contribute to the local real estate?</button>
+                            </div>
+                            <div id="collapse-5" class="accordion-collapse collapse " aria-labelledby="collapse-item-5" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p class="faq-text"> Most Islamic centers offer charity programs, counseling, and financial assistance for those in need. Non-Muslims are welcome to visit mosques. They should dress modestly and remove their shoes upon entering. You can attend community events, volunteer at the mosque, join study circles, or participate in outreach programs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

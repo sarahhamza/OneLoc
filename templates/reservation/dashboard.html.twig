@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Reservations{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <h1 class="mb-5">My Reservations</h1>
+
+    <ul class="nav nav-tabs mb-4" id="reservationTabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#sent">Sent Reservations</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#received">Received Reservations</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+        <!-- SENT RESERVATIONS -->
+        <div class="tab-pane fade show active" id="sent">
+            <h3>Sent Requests</h3>
+            {% if sent_reservations|length > 0 %}
+                <div class="row g-4">
+                {% for r in sent_reservations %}
+    <div class="col-lg-6">
+        <div class="card h-100 shadow-sm">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ asset('uploads/properties/' ~ r.property.photos[0]|default('assets/img/placeholder.jpg')) }}"
+                         class="img-fluid rounded-start h-100" style="object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ r.property.title }}</h5>
+                        <p class="text-muted small">{{ r.property.address }}</p>
+                        <p><strong>Check-in:</strong> {{ r.checkIn|date('M d, Y') }}</p>
+                        <p><strong>Check-out:</strong> {{ r.checkOut|date('M d, Y') }}</p>
+                        <p><strong>Total:</strong> ${{ (r.property.price * r.checkOut.diff(r.checkIn).days)|number_format(2) }}</p>
+
+                        <div class="mt-auto d-flex gap-2 align-items-center">
+                            <span class="badge bg-{{ 
+                                r.status == 'accepted' ? 'success' : 
+                                (r.status == 'rejected' ? 'danger' : 'warning')
+                            }} fs-6">
+                                {{ r.status|capitalize }}
+                            </span>
+
+                            {% if r.status == 'pending' %}
+                                <form method="post" action="{{ path('app_reservation_cancel', {id: r.id}) }}"
+                                      onsubmit="return confirm('Cancel this reservation?')">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        Cancel
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">You haven't sent any reservation requests.</p>
+            {% endif %}
+        </div>
+
+        <!-- RECEIVED RESERVATIONS -->
+        <div class="tab-pane fade" id="received">
+            <h3>Received Requests</h3>
+            {% if received_reservations|length > 0 %}
+                <div class="row g-4">
+                    {% for r in received_reservations %}
+                        <div class="col-lg-6">
+                            <div class="card h-100 shadow-sm">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset('uploads/properties/' ~ r.property.photos[0]|default('assets/img/placeholder.jpg')) }}"
+                                             class="img-fluid rounded-start h-100" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title">{{ r.property.title }}</h5>
+                                            <p class="card-text text-muted">Tenant: {{ r.tenant.firstName}} {{ r.tenant.lastName}} </p>
+                                            <p><strong>Email:</strong> {{ r.tenant.email }}</p>
+                                            <p><strong>Check-in:</strong> {{ r.checkIn|date('M d, Y') }}</p>
+                                            <p><strong>Check-out:</strong> {{ r.checkOut|date('M d, Y') }}</p>
+                                            <p><strong>Total:</strong> 
+                                                ${{ (r.property.price * r.checkOut.diff(r.checkIn).days)|number_format(2) }}
+                                            </p>
+
+                                            {% if r.status == 'pending' %}
+                                                <div class="mt-auto">
+                                                    <form method="post" action="{{ path('app_reservation_update', {id: r.id}) }}" class="d-inline">
+                                                        <input type="hidden" name="status" value="accepted">
+                                                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                                                    </form>
+                                                    <form method="post" action="{{ path('app_reservation_update', {id: r.id}) }}" class="d-inline ms-2">
+                                                        <input type="hidden" name="status" value="rejected">
+                                                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                                    </form>
+                                                </div>
+                                            {% else %}
+                                                <span class="badge bg-{{ r.status == 'accepted' ? 'success' : 'danger' }} fs-6">
+                                                    {{ r.status|capitalize }}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">No one has requested your properties yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
